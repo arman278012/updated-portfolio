@@ -21,6 +21,8 @@ import {
     Zap,
     Terminal
 } from 'lucide-react';
+import logo from '../../../src/assets/logo/image2.png'
+import { Link } from "react-router-dom";
 
 export const Navbar = ({ darkMode, toggleDarkMode }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -74,32 +76,32 @@ export const Navbar = ({ darkMode, toggleDarkMode }) => {
     ];
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled
+        <nav className={`fixed w-full h-[90px] z-50 transition-all duration-500 ${scrolled
             ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-xl dark:shadow-gray-900/50'
             : 'bg-transparent'
             }`}>
             {/* Animated border */}
-            <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition-all duration-500 ${scrolled ? 'w-full' : 'w-0'
-                }`}></div>
+            {/* <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition-all duration-500 ${scrolled ? 'w-full' : 'w-0'
+                }`}></div> */}
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16 md:h-20">
                     {/* Logo */}
-                    <div className="flex items-center gap-3">
-                        <div className="relative">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-30"></div>
-                            <div className="relative p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
-                                <Terminal className="w-6 h-6 text-white" />
-                            </div>
-                        </div>
-                        <div>
-                            <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                                Arman Ali
-                            </h1>
-                            <div className="hidden md:block text-xs text-gray-500 dark:text-gray-400 font-medium">
-                                Frontend Developer
-                            </div>
-                        </div>
+                    <div className="flex">
+                        <a
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            }}
+                        >
+                            <img
+                                src={logo}
+                                alt="Logo"
+                                className="h-12 md:h-[120px] w-auto object-contain cursor-pointer mt-5"
+                            />
+                        </a>
+
                     </div>
 
                     {/* Desktop Navigation */}
@@ -163,13 +165,6 @@ export const Navbar = ({ darkMode, toggleDarkMode }) => {
                                 <Moon className="w-5 h-5 text-gray-700 dark:text-gray-300 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
                             )}
                         </button>
-
-                        {/* Resume Button - Desktop */}
-                        {/* <button className="hidden md:flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300 group">
-                            <Download className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
-                            <span className="font-medium">Resume</span>
-                            <Zap className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </button> */}
 
                         {/* Mobile Menu Button */}
                         <button
@@ -272,18 +267,6 @@ export const Navbar = ({ darkMode, toggleDarkMode }) => {
                                     </div>
                                 </div>
                             </div>
-
-                            {/* Menu Footer */}
-                            {/* <div className="p-6 border-t border-gray-200 dark:border-gray-800">
-                                <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-300 group">
-                                    <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-                                    <span className="font-semibold">Download Resume</span>
-                                    <Sparkles className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                </button>
-                                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
-                                    © {new Date().getFullYear()} YourName. All rights reserved.
-                                </p>
-                            </div> */}
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,7 @@ import {
     Calendar,
     FileText
 } from 'lucide-react';
+import logo from '../../../src/assets/logo/image2.png'
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -48,16 +49,21 @@ export const Footer = () => {
     ];
 
     const socialLinks = [
-        { icon: <Github className="w-5 h-5" />, href: 'https://github.com', label: 'GitHub', color: 'hover:text-gray-900 hover:bg-gray-100' },
+        { icon: <Github className="w-5 h-5" />, href: 'https://github.com/arman278012', label: 'GitHub', color: 'hover:text-gray-900 hover:bg-gray-100' },
         { icon: <Linkedin className="w-5 h-5" />, href: 'https://linkedin.com', label: 'LinkedIn', color: 'hover:text-blue-700 hover:bg-blue-100' },
         { icon: <Mail className="w-5 h-5" />, href: 'mailto:hello@example.com', label: 'Email', color: 'hover:text-red-600 hover:bg-red-100' },
-        { icon: <FileText className="w-5 h-5" />, href: '/resume.pdf', label: 'Resume', color: 'hover:text-green-700 hover:bg-green-100' }
+        {
+            icon: <FileText className="w-5 h-5" />,
+            href: 'https://drive.google.com/file/d/1Sw9R6vih1A6T2fqZjtlANpJGOSIprk3e/view?usp=drive_link',
+            label: 'Resume',
+            color: 'hover:text-green-700 hover:bg-green-100'
+        }
     ];
 
     const contactInfo = [
-        { icon: <Mail className="w-4 h-4" />, text: 'hello@example.com' },
-        { icon: <Phone className="w-4 h-4" />, text: '+1 (123) 456-7890' },
-        { icon: <MapPin className="w-4 h-4" />, text: 'San Francisco, CA' },
+        { icon: <Mail className="w-4 h-4" />, text: 'aa278012@gmail.com' },
+        { icon: <Phone className="w-4 h-4" />, text: '+91 8299760673' },
+        { icon: <MapPin className="w-4 h-4" />, text: 'Bangalore, Karnataka' },
         { icon: <Calendar className="w-4 h-4" />, text: 'Available for work' }
     ];
 
@@ -79,14 +85,22 @@ export const Footer = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand & Description */}
                     <div className="space-y-6">
-                        <div className="flex items-center gap-3">
-                            <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
-                                <Code2 className="w-6 h-6 text-white" />
-                            </div>
-                            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                                YourName
-                            </h3>
-                            <Sparkles className="w-5 h-5 text-purple-400" />
+
+                        <div className="flex">
+                            <a
+                                href="#"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }}
+                            >
+                                <img
+                                    src={logo}
+                                    alt="Logo"
+                                    className="h-12 md:h-[100px] w-auto object-contain cursor-pointer"
+                                />
+                            </a>
+
                         </div>
 
                         <p className="text-gray-400 leading-relaxed">
@@ -188,7 +202,7 @@ export const Footer = () => {
                     <div className="flex items-center gap-2 text-gray-400">
                         <Heart className="w-4 h-4 text-red-500 animate-pulse" />
                         <span>
-                            Made with passion by YourName • © {currentYear} All rights reserved.
+                            Made with passion by Arman Ali • © {currentYear} All rights reserved.
                         </span>
                     </div>
 

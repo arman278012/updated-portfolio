@@ -15,7 +15,10 @@ import {
     Paperclip,
     User,
     AtSign,
-    Coffee
+    Coffee,
+    Twitter,
+    Instagram,
+    Youtube
 } from 'lucide-react';
 
 export const Contact = () => {
@@ -48,17 +51,49 @@ export const Contact = () => {
     };
 
     const contactInfo = [
-        { icon: <Mail className="w-5 h-5" />, label: 'Email', value: 'hello@example.com', color: 'text-blue-500' },
-        { icon: <Phone className="w-5 h-5" />, label: 'Phone', value: '+1 (123) 456-7890', color: 'text-green-500' },
-        { icon: <MapPin className="w-5 h-5" />, label: 'Location', value: 'San Francisco, CA', color: 'text-red-500' },
+        { icon: <Mail className="w-5 h-5" />, label: 'Email', value: 'aa278012@gmail.com', color: 'text-blue-500' },
+        { icon: <Phone className="w-5 h-5" />, label: 'Phone', value: '+91 8299760673', color: 'text-green-500' },
+        { icon: <MapPin className="w-5 h-5" />, label: 'Location', value: 'Bangalore, Karnataka', color: 'text-red-500' },
         { icon: <Clock className="w-5 h-5" />, label: 'Response Time', value: 'Within 24 hours', color: 'text-purple-500' }
     ];
 
     const socialLinks = [
-        { icon: <Github className="w-5 h-5" />, href: 'https://github.com', label: 'GitHub', color: 'hover:bg-gray-900 hover:text-white' },
-        { icon: <Linkedin className="w-5 h-5" />, href: 'https://linkedin.com', label: 'LinkedIn', color: 'hover:bg-blue-700 hover:text-white' },
-        { icon: <Mail className="w-5 h-5" />, href: 'mailto:hello@example.com', label: 'Email', color: 'hover:bg-red-600 hover:text-white' },
-        { icon: <ExternalLink className="w-5 h-5" />, href: '/portfolio', label: 'Portfolio', color: 'hover:bg-purple-700 hover:text-white' }
+        {
+            icon: <Github className="w-5 h-5" />,
+            href: 'https://github.com/arman278012',
+            label: 'GitHub',
+            color: 'hover:bg-gray-900 hover:text-white'
+        },
+        {
+            icon: <Linkedin className="w-5 h-5" />,
+            href: 'https://www.linkedin.com/in/arman-ali-06011b1ab',
+            label: 'LinkedIn',
+            color: 'hover:bg-blue-700 hover:text-white'
+        },
+        {
+            icon: <Twitter className="w-5 h-5" />,
+            href: 'https://x.com/ArmanAl91521989',
+            label: 'Twitter (X)',
+            color: 'hover:bg-black hover:text-white'
+        },
+        {
+            icon: <Instagram className="w-5 h-5" />,
+            href: 'https://www.instagram.com/_ali.arman_?igsh=MTBxamxpdHEwMTZ4OA==',
+            label: 'Instagram',
+            color: 'hover:bg-pink-600 hover:text-white'
+        },
+        {
+            icon: <Youtube className="w-5 h-5" />,
+            href: 'https://www.youtube.com/@learningengineer6633',
+            label: 'YouTube',
+            color: 'hover:bg-red-600 hover:text-white'
+        },
+        {
+            icon: <Mail className="w-5 h-5" />,
+            href: 'mailto:aa278012@gmail.com',
+            label: 'Email',
+            color: 'hover:bg-red-500 hover:text-white'
+        }
     ];
 
     return (
@@ -270,7 +305,7 @@ export const Contact = () => {
                     {[
                         { value: '95%', label: 'Response Rate', icon: '📨' },
                         { value: '24h', label: 'Avg. Response Time', icon: '⚡' },
-                        { value: '50+', label: 'Projects Discussed', icon: '🚀' },
+                        { value: '20+', label: 'Projects Discussed', icon: '🚀' },
                         { value: '100%', label: 'Satisfaction', icon: '❤️' }
                     ].map((stat, index) => (
                         <div key={index} className="text-center p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">

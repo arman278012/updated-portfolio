@@ -45,8 +45,15 @@ export const Hero = () => {
     };
 
     const handleDownloadResume = () => {
-        console.log('Downloading resume...');
-        // Add your resume download logic here
+        const downloadUrl =
+            "https://drive.google.com/uc?export=download&id=1Sw9R6vih1A6T2fqZjtlANpJGOSIprk3e";
+
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = "Arman_Ali_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
 
     return (
@@ -137,7 +144,7 @@ export const Hero = () => {
                     <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 md:gap-8 mb-8 md:mb-12 max-w-2xl mx-auto px-4">
                         {[
                             { value: '2+', label: 'Years Experience', icon: '🎯' },
-                            { value: '50+', label: 'Projects', icon: '🚀' },
+                            { value: '20+', label: 'Projects', icon: '🚀' },
                             { value: '100%', label: 'Passion', icon: '🔥' },
                             { value: '24/7', label: 'Learning', icon: '📚' }
                         ].map((stat, index) => (
@@ -189,22 +196,6 @@ export const Hero = () => {
                             </div>
                         </button>
                     </div>
-
-                    {/* Quick Preview - Responsive */}
-                    {/* <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl md:rounded-2xl px-6 py-4 md:px-8 md:py-6 shadow-lg mb-8 md:mb-16 mx-4">
-                        <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-green-500 animate-pulse"></div>
-                            <span className="font-medium text-gray-700 dark:text-gray-300 text-sm md:text-base">Available for work</span>
-                        </div>
-                        <div className="hidden sm:block w-px h-6 md:h-8 bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
-                        <div className="sm:hidden w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
-                        <div className="flex items-center gap-3 group cursor-pointer">
-                            <Play className="w-4 h-4 md:w-5 md:h-5 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
-                            <span className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-sm md:text-base">
-                                Quick intro
-                            </span>
-                        </div>
-                    </div> */}
 
                     {/* Scroll Indicator */}
                     <div

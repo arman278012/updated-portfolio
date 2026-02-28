@@ -25,9 +25,9 @@ export const Skills = () => {
 
   const skillsData = {
     frontend: {
-      color: 'border-blue-200 bg-blue-50 hover:bg-blue-100',
+      color: 'border-blue-200 bg-blue-50 hover:bg-blue-100 dark:border-blue-700 dark:bg-blue-900/30 dark:hover:bg-blue-900/50',
       glow: 'hover:shadow-[0_0_40px_rgba(59,130,246,0.2)]',
-      icon: <Palette className="w-6 h-6 text-blue-600" />,
+      icon: <Palette className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
       skills: [
         { name: 'React.js', icon: '⚛️', level: 'advanced' },
         { name: 'JavaScript', icon: '🔧', level: 'advanced' },
@@ -35,47 +35,40 @@ export const Skills = () => {
         { name: 'Next.js', icon: '⏭️', level: 'intermediate' },
         { name: 'Tailwind CSS', icon: '🎨', level: 'advanced' },
         { name: 'HTML5', icon: '📄', level: 'expert' },
-        // { name: 'CSS3', icon: '🎭', level: 'expert' },
         { name: 'Redux', icon: '🔄', level: 'advanced' }
       ]
     },
     backend: {
-      color: 'border-purple-200 bg-purple-50 hover:bg-purple-100',
+      color: 'border-purple-200 bg-purple-50 hover:bg-purple-100 dark:border-purple-700 dark:bg-purple-900/30 dark:hover:bg-purple-900/50',
       glow: 'hover:shadow-[0_0_40px_rgba(168,85,247,0.2)]',
-      icon: <Server className="w-6 h-6 text-purple-600" />,
+      icon: <Server className="w-6 h-6 text-purple-600 dark:text-purple-400" />,
       skills: [
         { name: 'Node.js', icon: '🟢', level: 'intermediate' },
         { name: 'Express', icon: '⚡', level: 'intermediate' },
         { name: 'REST APIs', icon: '🔌', level: 'advanced' },
         { name: 'MongoDB', icon: '🍃', level: 'intermediate' },
         { name: 'Firebase', icon: '🔥', level: 'intermediate' },
-        { name: 'GraphQL', icon: '📈', level: 'learning' },
-        { name: 'Python', icon: '🐍', level: 'intermediate' }
       ]
     },
     tools: {
-      color: 'border-green-200 bg-green-50 hover:bg-green-100',
+      color: 'border-green-200 bg-green-50 hover:bg-green-100 dark:border-green-700 dark:bg-green-900/30 dark:hover:bg-green-900/50',
       glow: 'hover:shadow-[0_0_40px_rgba(34,197,94,0.2)]',
-      icon: <Terminal className="w-6 h-6 text-green-600" />,
+      icon: <Terminal className="w-6 h-6 text-green-600 dark:text-green-400" />,
       skills: [
         { name: 'Git & GitHub', icon: '🐙', level: 'advanced' },
         { name: 'VS Code', icon: '💻', level: 'expert' },
-        // { name: 'Figma', icon: '🎨', level: 'intermediate' },
         { name: 'Docker', icon: '🐳', level: 'learning' },
         { name: 'AWS', icon: '☁️', level: 'learning' },
-        // { name: 'Jest', icon: '🧪', level: 'intermediate' },
-        // { name: 'Webpack', icon: '📦', level: 'intermediate' }
       ]
     },
     mobile: {
-      color: 'border-pink-200 bg-pink-50 hover:bg-pink-100',
+      color: 'border-pink-200 bg-pink-50 hover:bg-pink-100 dark:border-pink-700 dark:bg-pink-900/30 dark:hover:bg-pink-900/50',
       glow: 'hover:shadow-[0_0_40px_rgba(236,72,153,0.2)]',
-      icon: <Smartphone className="w-6 h-6 text-pink-600" />,
+      icon: <Smartphone className="w-6 h-6 text-pink-600 dark:text-pink-400" />,
       skills: [
-        { name: 'React Native', icon: '📱', level: 'intermediate' },
-        { name: 'Expo', icon: '⚡', level: 'intermediate' },
-        // { name: 'Mobile UI', icon: '📲', level: 'intermediate' },
-        // { name: 'PWA', icon: '🔗', level: 'learning' }
+        { name: 'React Native (Expo)', icon: '📱', level: 'intermediate' },
+        { name: 'Flutter', icon: '🦋', level: 'intermediate' },
+        { name: 'Dart', icon: '🎯', level: 'intermediate' },
       ]
     }
   };
@@ -92,79 +85,21 @@ export const Skills = () => {
     ? allSkills
     : skillsData[activeCategory]?.skills || [];
 
-  // Create hexagonal grid effect
-  const HexagonSkill = ({ skill, categoryKey, index }) => {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-      const timer = setTimeout(() => setIsVisible(true), index * 100);
-      return () => clearTimeout(timer);
-    }, [index]);
-
-    return (
-      <div
-        className={`
-          relative transform transition-all duration-500
-          ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
-          hover:z-10
-        `}
-        onMouseEnter={() => setHoveredSkill(skill.name)}
-        onMouseLeave={() => setHoveredSkill(null)}
-      >
-        {/* Hexagon Shape */}
-        <div className={`
-          relative w-40 h-44 flex items-center justify-center
-          ${skillsData[categoryKey]?.color}
-          border-2 rounded-2xl
-          ${skillsData[categoryKey]?.glow}
-          transition-all duration-300
-          hover:-translate-y-3
-          ${hoveredSkill === skill.name ? 'scale-110' : 'scale-100'}
-        `}>
-          {/* Decorative Corner */}
-          <div className="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-current opacity-20 rounded-tr-xl"></div>
-          <div className="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-current opacity-20 rounded-bl-xl"></div>
-
-          {/* Skill Content */}
-          <div className="text-center p-6">
-            <div className="text-4xl mb-3">{skill.icon}</div>
-            <h3 className="font-bold text-gray-800 text-lg mb-2">{skill.name}</h3>
-
-            {/* Level Indicator (Dots) */}
-            <div className="flex justify-center space-x-1">
-              {['expert', 'advanced', 'intermediate', 'learning'].map((level, idx) => (
-                <div
-                  key={idx}
-                  className={`
-                    w-2 h-2 rounded-full transition-all duration-300
-                    ${skill.level === level
-                      ? `bg-gradient-to-r ${levelColors[level]} scale-125`
-                      : 'bg-gray-300'
-                    }
-                  `}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
-    <section id="skills" className="py-24 bg-white overflow-hidden">
+    <section id="skills" className="py-24 bg-white dark:bg-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center mb-20">
           <div className="relative inline-block mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-2xl opacity-20 animate-pulse"></div>
-            <div className="relative inline-flex items-center justify-center p-4 bg-white rounded-2xl shadow-lg border border-gray-100">
-              <CircuitBoard className="w-12 h-12 text-blue-600" />
-              <Sparkles className="w-8 h-8 text-purple-500 -ml-3" />
+            <div className="relative inline-flex items-center justify-center p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
+              <CircuitBoard className="w-12 h-12 text-blue-600 dark:text-blue-400" />
+              <Sparkles className="w-8 h-8 text-purple-500 dark:text-purple-400 -ml-3" />
             </div>
           </div>
 
-          <h2 className="text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
             <span className="relative">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Tech Stack
@@ -173,7 +108,7 @@ export const Skills = () => {
             </span>
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
             Technologies I work with to build exceptional digital experiences
           </p>
 
@@ -185,7 +120,7 @@ export const Skills = () => {
                 px-6 py-3 rounded-xl font-semibold transition-all duration-300
                 ${activeCategory === 'all'
                   ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                  : 'bg-white text-gray-600 border-2 border-gray-100 hover:border-blue-200'
+                  : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-2 border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-600'
                 }
               `}
             >
@@ -201,13 +136,13 @@ export const Skills = () => {
                   px-6 py-3 rounded-xl font-semibold transition-all duration-300
                   flex items-center gap-2
                   ${activeCategory === key
-                    ? 'bg-white text-gray-800 shadow-lg border-2'
-                    : 'bg-gray-50 text-gray-600 border-2 border-transparent hover:border-gray-200'
+                    ? 'bg-white dark:bg-gray-800 text-gray-800 dark:text-white shadow-lg border-2'
+                    : 'bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-600'
                   }
-                  ${key === 'frontend' && activeCategory === key ? 'border-blue-200' : ''}
-                  ${key === 'backend' && activeCategory === key ? 'border-purple-200' : ''}
-                  ${key === 'tools' && activeCategory === key ? 'border-green-200' : ''}
-                  ${key === 'mobile' && activeCategory === key ? 'border-pink-200' : ''}
+                  ${key === 'frontend' && activeCategory === key ? 'border-blue-200 dark:border-blue-600' : ''}
+                  ${key === 'backend' && activeCategory === key ? 'border-purple-200 dark:border-purple-600' : ''}
+                  ${key === 'tools' && activeCategory === key ? 'border-green-200 dark:border-green-600' : ''}
+                  ${key === 'mobile' && activeCategory === key ? 'border-pink-200 dark:border-pink-600' : ''}
                 `}
               >
                 {category.icon}
@@ -217,10 +152,10 @@ export const Skills = () => {
           </div>
         </div>
 
-        {/* Skills Grid - Hexagonal Layout */}
+        {/* Skills Grid */}
         <div className="relative min-h-[600px]">
           {/* Animated Background Pattern */}
-          <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 opacity-5 dark:opacity-10">
             <div className="absolute inset-0" style={{
               backgroundImage: `radial-gradient(circle at 25px 25px, #3b82f6 2px, transparent 0)`,
               backgroundSize: '50px 50px'
@@ -237,23 +172,21 @@ export const Skills = () => {
                   hover:scale-105 hover:z-10
                   ${hoveredSkill === skill.name ? 'scale-110' : 'scale-100'}
                 `}
-                style={{
-                  animationDelay: `${index * 100}ms`
-                }}
+                style={{ animationDelay: `${index * 100}ms` }}
                 onMouseEnter={() => setHoveredSkill(skill.name)}
                 onMouseLeave={() => setHoveredSkill(null)}
               >
-                {/* Hexagon Card */}
+                {/* Skill Card */}
                 <div className={`
                   relative w-44 h-48 flex flex-col items-center justify-center
-                  bg-white border-2 rounded-3xl
+                  bg-white dark:bg-gray-800 border-2 rounded-3xl
                   transition-all duration-300
                   ${skillsData[activeCategory === 'all'
                     ? Object.keys(skillsData).find(key =>
                       skillsData[key].skills.some(s => s.name === skill.name)
                     )
                     : activeCategory]?.color.split(' ')[0].replace('border-', 'border-')}
-                  ${hoveredSkill === skill.name ? 'shadow-2xl' : 'shadow-lg'}
+                  ${hoveredSkill === skill.name ? 'shadow-2xl' : 'shadow-lg dark:shadow-gray-900'}
                   group
                 `}>
                   {/* Floating Icon Background */}
@@ -266,15 +199,15 @@ export const Skills = () => {
                     <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                       {skill.icon}
                     </div>
-                    <h3 className="font-bold text-gray-800 text-xl mb-2">{skill.name}</h3>
+                    <h3 className="font-bold text-gray-800 dark:text-white text-xl mb-2">{skill.name}</h3>
 
                     {/* Skill Level Badge */}
                     <span className={`
                       inline-block px-3 py-1 rounded-full text-xs font-semibold
-                      ${skill.level === 'expert' ? 'bg-blue-100 text-blue-700' : ''}
-                      ${skill.level === 'advanced' ? 'bg-purple-100 text-purple-700' : ''}
-                      ${skill.level === 'intermediate' ? 'bg-green-100 text-green-700' : ''}
-                      ${skill.level === 'learning' ? 'bg-yellow-100 text-yellow-700' : ''}
+                      ${skill.level === 'expert' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300' : ''}
+                      ${skill.level === 'advanced' ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300' : ''}
+                      ${skill.level === 'intermediate' ? 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300' : ''}
+                      ${skill.level === 'learning' ? 'bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300' : ''}
                     `}>
                       {skill.level}
                     </span>
@@ -290,7 +223,7 @@ export const Skills = () => {
         </div>
 
         {/* Legend */}
-        <div className="mt-24 p-8 bg-gradient-to-r from-gray-50 to-white rounded-3xl border border-gray-100 shadow-lg">
+        <div className="mt-24 p-8 bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-lg">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {Object.entries(levelColors).map(([level, gradient]) => (
               <div key={level} className="flex items-center space-x-3">
@@ -301,8 +234,8 @@ export const Skills = () => {
                   {level === 'learning' && <Sparkles className="w-5 h-5 text-white" />}
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-800 capitalize">{level}</h4>
-                  <p className="text-sm text-gray-600">
+                  <h4 className="font-bold text-gray-800 dark:text-white capitalize">{level}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
                     {level === 'expert' && 'Extensive experience'}
                     {level === 'advanced' && 'Strong proficiency'}
                     {level === 'intermediate' && 'Working knowledge'}
@@ -316,22 +249,23 @@ export const Skills = () => {
 
         {/* Stats */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-8 bg-white rounded-2xl px-8 py-4 shadow-lg border border-gray-100">
+          <div className="inline-flex items-center space-x-8 bg-white dark:bg-gray-800 rounded-2xl px-8 py-4 shadow-lg border border-gray-100 dark:border-gray-700">
             <div className="text-center">
               <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {allSkills.length}+
               </div>
-              <div className="text-gray-600 text-sm">Technologies</div>
+              <div className="text-gray-600 dark:text-gray-400 text-sm">Technologies</div>
             </div>
-            <div className="w-px h-12 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
+            <div className="w-px h-12 bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
             <div className="text-center">
               <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                 {Object.keys(skillsData).length}
               </div>
-              <div className="text-gray-600 text-sm">Categories</div>
+              <div className="text-gray-600 dark:text-gray-400 text-sm">Categories</div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

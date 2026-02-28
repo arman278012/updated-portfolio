@@ -16,7 +16,7 @@ export const Education = () => {
                     <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-xl shadow-lg">
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Bachelor's Degree</h3>
                         <p className="text-gray-600 dark:text-gray-400 mb-2">Computer Science / IT</p>
-                        <p className="text-gray-500 dark:text-gray-500">University Name • Year</p>
+                        <p className="text-gray-500 dark:text-gray-500">Dr APJ Abdul Kalam technical University • 2023</p>
                     </div>
 
                     <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-xl shadow-lg">
