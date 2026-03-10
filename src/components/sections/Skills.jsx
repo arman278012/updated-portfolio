@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Code2,
   Sparkles,
   Zap,
   Cpu,
   Palette,
   Server,
   Smartphone,
-  Database,
-  Cloud,
-  GitBranch,
   Layers,
   Globe,
-  Shield,
   Terminal,
-  Wifi,
   CircuitBoard,
   Cpu as Chip
 } from 'lucide-react';
